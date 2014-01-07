@@ -58,6 +58,9 @@ static ConCommand dropprimary("dropprimary", CC_DropPrimary, "dropprimary: Drops
 //-----------------------------------------------------------------------------
 C_BaseHLPlayer::C_BaseHLPlayer()
 {
+	ConVarRef scissor( "r_flashlightscissor" );
+	scissor.SetValue( "0" );
+
 	AddVar( &m_Local.m_vecPunchAngle, &m_Local.m_iv_vecPunchAngle, LATCH_SIMULATION_VAR );
 	AddVar( &m_Local.m_vecPunchAngleVel, &m_Local.m_iv_vecPunchAngleVel, LATCH_SIMULATION_VAR );
 

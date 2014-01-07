@@ -26,9 +26,7 @@
 #include <algorithm>
 #include "tier0/valve_minmax_on.h"
 
-#if defined(DOD_DLL) || defined(CSTRIKE_DLL)
 #define USE_DETAIL_SHAPES
-#endif
 
 #ifdef USE_DETAIL_SHAPES
 #include "engine/ivdebugoverlay.h"
@@ -616,7 +614,7 @@ void CDetailModel::GetRenderBoundsWorldspace( Vector& mins, Vector& maxs )
 
 bool CDetailModel::ShouldReceiveProjectedTextures( int flags )
 {
-	return false;
+	return true;
 }
 
 bool CDetailModel::UsesPowerOfTwoFrameBufferTexture()
@@ -1596,11 +1594,11 @@ void CDetailObjectSystem::UnserializeModelDict( CUtlBuffer& buf )
 		dict.m_pModel = (model_t *)engine->LoadModel( lump.m_Name, true );
 
 		// Don't allow vertex-lit models
-		if (modelinfo->IsModelVertexLit(dict.m_pModel))
-		{
-			Warning("Detail prop model %s is using vertex-lit materials!\nIt must use unlit materials!\n", lump.m_Name );
-			dict.m_pModel = (model_t *)engine->LoadModel( "models/error.mdl" );
-		}
+		//if (modelinfo->IsModelVertexLit(dict.m_pModel))
+		//{
+		//	Warning("Detail prop model %s is using vertex-lit materials!\nIt must use unlit materials!\n", lump.m_Name );
+		//	dict.m_pModel = (model_t *)engine->LoadModel( "models/error.mdl" );
+		//}
 
 		m_DetailObjectDict.AddToTail( dict );
 	}
