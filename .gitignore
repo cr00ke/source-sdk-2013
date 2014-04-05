@@ -65,3 +65,8 @@ config.cfg
 # shader files
 *.tmp
 
+# Specific build products
+mathlib.lib
+tier1.lib
+vgui_controls.lib
+

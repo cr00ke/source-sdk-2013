@@ -959,7 +959,7 @@ private:
 
 	// Sets the view's active flashlight render state
 	void	SetViewFlashlightState( int nActiveFlashlightCount, ClientShadowHandle_t* pActiveFlashlights );
-
+public:
 	void	UpdateDirtyShadow( ClientShadowHandle_t handle );
 	void	UpdateShadowDirectionFromLocalLightSource( ClientShadowHandle_t shadowHandle );
 
@@ -4207,6 +4207,9 @@ bool CClientShadowMgr::IsFlashlightTarget( ClientShadowHandle_t shadowHandle, IC
 							
 	return false;
 }
+//-----------------------------------------------------------------------------
+// Dinamic shadow from alien swarm
+//-----------------------------------------------------------------------------
 const Vector &CClientShadowMgr::GetShadowDirection( ClientShadowHandle_t shadowHandle ) const
 {
 	Assert( shadowHandle != CLIENTSHADOW_INVALID_HANDLE );
@@ -4380,6 +4383,8 @@ void CClientShadowMgr::SetShadowFromWorldLightsEnabled( bool bEnabled )
 	m_bShadowFromWorldLights = bEnabled;
 	UpdateAllShadows();
 }
+
+
 //-----------------------------------------------------------------------------
 // A material proxy that resets the base texture to use the rendered shadow
 //-----------------------------------------------------------------------------
