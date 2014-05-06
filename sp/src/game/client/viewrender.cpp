@@ -4002,15 +4002,13 @@ void CRendering3dView::DrawOpaqueRenderables( ERenderDepthMode DepthMode )
 			//
 			RopeManager()->DrawRenderCache( bShadowDepth );
 			g_pParticleSystemMgr->DrawRenderCache( bShadowDepth );
-
+			CGrassClusterManager::GetInstance()->RenderClusters( DepthMode == DEPTH_MODE_SHADOW );
 			
 
 			return;
 		}
 	}
 #endif
-
-	CGrassClusterManager::GetInstance()->RenderClusters( DepthMode == DEPTH_MODE_SHADOW );
 
 	//
 	// Sort everything that's not a static prop
