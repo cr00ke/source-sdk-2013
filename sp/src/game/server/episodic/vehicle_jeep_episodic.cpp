@@ -327,7 +327,7 @@ BEGIN_DATADESC( CPropJeepEpisodic )
 	DEFINE_ARRAY( m_hWheelWater, FIELD_EHANDLE, NUM_WHEEL_EFFECTS ),
 	DEFINE_ARRAY( m_hHazardLights, FIELD_EHANDLE, NUM_HAZARD_LIGHTS ),
 	DEFINE_FIELD( m_flCargoStartTime, FIELD_TIME ),
-	DEFINE_FIELD( m_bBlink, FIELD_BOOLEAN ),
+//	DEFINE_FIELD( m_bBlink, FIELD_BOOLEAN ),
 	DEFINE_FIELD( m_bRadarEnabled, FIELD_BOOLEAN ),
 	DEFINE_FIELD( m_bRadarDetectsEnemies, FIELD_BOOLEAN ),
 	DEFINE_FIELD( m_hRadarScreen, FIELD_EHANDLE ),
@@ -341,7 +341,7 @@ BEGIN_DATADESC( CPropJeepEpisodic )
 	DEFINE_ARRAY( m_vecRadarContactPos, FIELD_POSITION_VECTOR, RADAR_MAX_CONTACTS ),
 	DEFINE_ARRAY( m_iRadarContactType, FIELD_INTEGER, RADAR_MAX_CONTACTS ),
 
-	DEFINE_THINKFUNC( HazardBlinkThink ),
+//	DEFINE_THINKFUNC( HazardBlinkThink ),
 
 	DEFINE_OUTPUT( m_OnCompanionEnteredVehicle, "OnCompanionEnteredVehicle" ),
 	DEFINE_OUTPUT( m_OnCompanionExitedVehicle, "OnCompanionExitedVehicle" ),
@@ -414,7 +414,7 @@ void CPropJeepEpisodic::UpdateOnRemove( void )
 		}
 	}
 
-	DestroyHazardLights();
+//	DestroyHazardLights();
 }
 
 //-----------------------------------------------------------------------------
@@ -424,7 +424,7 @@ void CPropJeepEpisodic::Precache( void )
 {
 	PrecacheMaterial( RADAR_PANEL_MATERIAL );
 	PrecacheMaterial( RADAR_PANEL_WRITEZ );
-	PrecacheModel( s_szHazardSprite );
+//	PrecacheModel( s_szHazardSprite );
 	PrecacheScriptSound( "JNK_Radar_Ping_Friendly" );
 	PrecacheScriptSound( "Physics.WaterSplash" );
 
@@ -443,7 +443,7 @@ void CPropJeepEpisodic::EnterVehicle( CBaseCombatCharacter *pPassenger )
 	BaseClass::EnterVehicle( pPassenger );
 
 	// Turn our hazards off!
-	DestroyHazardLights();
+//	DestroyHazardLights();
 }
 
 //-----------------------------------------------------------------------------
@@ -1352,6 +1352,7 @@ void CPropJeepEpisodic::DriveVehicle( float flFrameTime, CUserCmd *ucmd, int iBu
 //-----------------------------------------------------------------------------
 // Purpose: 
 //-----------------------------------------------------------------------------
+/*
 void CPropJeepEpisodic::CreateHazardLights( void )
 {
 	static const char *s_szAttach[NUM_HAZARD_LIGHTS] =
@@ -1395,10 +1396,11 @@ void CPropJeepEpisodic::CreateHazardLights( void )
 	// Setup our blink
 	SetContextThink( &CPropJeepEpisodic::HazardBlinkThink, gpGlobals->curtime + 0.1f, "HazardBlink" );
 }
-
+*/
 //-----------------------------------------------------------------------------
 // Purpose: 
 //-----------------------------------------------------------------------------
+/*
 void CPropJeepEpisodic::DestroyHazardLights( void )
 {
 	for ( int i = 0; i < NUM_HAZARD_LIGHTS; i++ )
@@ -1411,7 +1413,7 @@ void CPropJeepEpisodic::DestroyHazardLights( void )
 
 	SetContextThink( NULL, gpGlobals->curtime, "HazardBlink" );
 }
-
+*/
 //-----------------------------------------------------------------------------
 // Purpose: 
 // Input  : nRole - 
@@ -1420,7 +1422,7 @@ void CPropJeepEpisodic::ExitVehicle( int nRole )
 {
 	BaseClass::ExitVehicle( nRole );
 
-	CreateHazardLights();
+//	CreateHazardLights();
 }
 
 void CPropJeepEpisodic::SetBusterHopperVisibility(bool visible)
@@ -1513,6 +1515,7 @@ void CPropJeepEpisodic::DestroyRadarPanel()
 //-----------------------------------------------------------------------------
 // Purpose: 
 //-----------------------------------------------------------------------------
+/*
 void CPropJeepEpisodic::HazardBlinkThink( void )
 {
 	if ( m_bBlink )
@@ -1543,7 +1546,7 @@ void CPropJeepEpisodic::HazardBlinkThink( void )
 
 	m_bBlink = !m_bBlink;
 }
-
+*/
 //-----------------------------------------------------------------------------
 // Purpose: 
 //-----------------------------------------------------------------------------

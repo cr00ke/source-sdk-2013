@@ -72,9 +72,9 @@ public:
 	DECLARE_DATADESC();
 
 protected:
-			void			HazardBlinkThink( void );
-			void			CreateHazardLights( void );
-			void			DestroyHazardLights( void );
+//			void			HazardBlinkThink( void );
+//			void			CreateHazardLights( void );
+//			void			DestroyHazardLights( void );
 
 			void			UpdateCargoEntry( void );
 			void			ReleasePropFromCargoHold( void );
@@ -114,7 +114,7 @@ private:
 	bool	m_bEntranceLocked;
 	bool	m_bExitLocked;
 	bool	m_bAddingCargo;
-	bool	m_bBlink;
+//	bool	m_bBlink;
 
 	float	m_flCargoStartTime;	// Time when the cargo was first added to the vehicle (used for animating into hold)
 	float	m_flNextAvoidBroadcastTime; // Next time we'll warn entity to move out of us
