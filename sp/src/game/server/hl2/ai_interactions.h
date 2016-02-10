@@ -26,8 +26,8 @@ extern int	g_interactionBarnacleVictimReleased;
 extern int	g_interactionBarnacleVictimGrab;
 
 //Bullsquid
-//extern int	g_interactionBullsquidPlay;
-//extern int	g_interactionBullsquidThrow;
+extern int	g_interactionBullsquidPlay;
+extern int	g_interactionBullsquidThrow;
 
 //Combine
 extern int	g_interactionCombineBash;
